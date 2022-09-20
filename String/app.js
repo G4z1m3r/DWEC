@@ -18,3 +18,6 @@ console.log(nombre)
 console.log(texto.trim())
 //divide en subcadenas segun lo especificado
 console.log(calle.split(','))
+//prueba a guardar el split en un array y mostrar solo la calle
+var trozos=calle.split(',')
+console.log(trozos[0])
