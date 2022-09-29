@@ -52,3 +52,5 @@ const mynumber2=(numero=19)=>{
 }
 console.log(mynumber1())
 console.log(mynumber2(57))
+
+

@@ -30,3 +30,49 @@ var persona1=new Object({
   }
 })
 persona1.saludar()
+
+
+const myCar=new Object()
+myCar.make='Ford'
+myCar.model='Mustang'
+myCar.year=1969
+
+class Persona2{
+  constructor(nombre,apellidos,year){
+    this._nombre=nombre
+    this._apellidos=apellidos
+    this._year=year
+  }
+
+  get year(){
+    return this._year
+  } 
+  set year(y){
+    this._year=y
+  }
+
+}
+
+//OBJETO DATE
+var fecha=new Date() //Toma la fecha del sistema
+var YEAR=fecha.getFullYear()//Extrae el año
+var MES=fecha.getMonth()//Extrae el mes
+var DAY=fecha.getDay()//Extrae el dia
+
+//OBJETO MATH
+var pi=Math.PI
+console.log(Math.round(4.5673))
+console.log(Math.round(3.2))
+console.log(Math.ceil(4.3))
+console.log(Math.ceil(-4.3))
+console.log(Math.floor(4.3))
+console.log(Math.floor(-4.3))
+console.log(Math.min(4,5,-3,9,1,0))
+
+var aleatorio=Math.random()//devuelve un num aleatiorio entre 0 y 1
+
+function generarNumeroAleatorio(numMax){
+  return Math.round((Math.random()*numMax))
+}
+console.log(generarNumeroAleatorio(57))
+
