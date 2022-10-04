@@ -76,3 +76,15 @@ function generarNumeroAleatorio(numMax){
 }
 console.log(generarNumeroAleatorio(57))
 
+//creamos una instancia del objeto persona
+const p1=new Persona2('a','b',12)
+
+const personas=new Array(5);
+personas.push(new Persona2(('a','b',12)))
+personas.push(new Persona2(('a','b',12)))
+personas.push(new Persona2(('a','b',12)))
+personas.push(new Persona2(('a','b',12)))
+
+for (persona of personas){
+  console.log(persona)
+}

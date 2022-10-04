@@ -84,3 +84,31 @@ for (i=0; i<mezcla.length;1++){
   document.write("</tr>")
 }
 document.write("</table>")
+
+//podemos recorrer arrays de tres formas
+//vamos a recorrerlo para inicia
+
+//vamos a recorrerlo pero con un bule for_of (ES6)
+for (num of a1) {
+  console.log(num)
+}
+
+//tambien podemos recorrerlo con un forEach
+
+a1.forEach(function(elemento, indice, array) {
+  console.log(`${indice}: ${elemento}`);
+})
+
+//Una cadena tambien se puede recorrer como un array de caracteres:
+//juna cadena se considera como un array
+const cadena="Hola mundo"
+for (car of cadena) {
+  console.log(car)
+}
+
+array.reverse(); //invierte el orden del array
+array.sort(); //ordena el array
+array.concat(array); //concatena arrays
+array.join(); //mezclar arrays
+
+
