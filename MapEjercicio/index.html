@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+class SortableMap extends Map {
+ sort(fn) {
+   fn = fn ? fn : (x, y) => x[1] > y[1] ? 1 : x[1] < y[1] ? - 1 : 0;
+  return new Map( [...this].sort(fn));
+ }
+  
+}
+    let loteria=new SortableMap([1,10],[2,1],[3,9],[4,2],[5,8],[6,3],[7,7],[8,4],[9,6][10,5])
+
+    let sortedMap = unsortedMap.sort();
+
+    console.log(...sortedMap);
+
+function numeroPremiado(numero){
+  loteria.set(numero, loteria.get(numero)++)
+}
+
+ 
+ordenarPremiados()
+  </script>
+</body>
+</html>
