@@ -16,9 +16,8 @@ formulario.addEventListener("submit", evento =>{
 async function logingFunction(){
   const email = formulario.querySelector("#inputEmail").value
   const passwd = formulario.querySelector("#inputPassword").value
-  let checker = true  
+  let checker = true
   const objeto = await (await fetch(`https://jsonplaceholder.typicode.com/users?email=${email}`)).json()
-  // if (!checkLoging){
     console.log(objeto)
       if (objeto.length==0){
         checker=false
@@ -29,19 +28,8 @@ async function logingFunction(){
       if (checker){
         window.location.href="html/blog.html"
       }
-  // }
-  
 }
 
-// async function getJSONByEmail(email){
-//   try{
-    
-//     return objetousuario
-//   }catch(error) {
-//   	console.log("error")
-//   }
- 
-// }
+//Hacer la funcion del boton de listar usuarios
 
-
-// console.log(getJSONByEmail("Sincere@april.biz"))
+//Hacer la funcion del boton mostrar todos los posts
