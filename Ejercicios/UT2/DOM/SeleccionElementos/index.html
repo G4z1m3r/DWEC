@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <p id="parrafo">Prueba para el control del DOM.</p>
+  <p>Otro parrafo de prueba para el DOM</p>
+  <style>
+    #identificador2{
+      color:red;
+    }
+  </style>
+
+  <script type="text/javascript">
+
+    let parrafo=document.getElementById("parrafo"); //solo devuelve uno
+    console.log(parrafo);
+
+    console.log(parrafo.innerText)
+    parrafo.innerText="Modifiando texto por DOM"
+
+    let parrafo2=document.getElementsByTagName('p') //hace un array de objetos
+    console.log(parrafo2)
+    parrafo2[1].id="nuevo"
+    parrafo2[1].style.color="yellow"
+    parrafo2[1].style.width="500px"
+    parrafo2[1].style.background="blue"
+    
+
+  </script>
+
+</body>
+</html>

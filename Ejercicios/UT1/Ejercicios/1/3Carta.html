@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3Carta</title>
+</head>
+<body>
+
+  <script>
+
+    let nombre=prompt("dame un nombre").trim()
+    let curso=prompt("dame un curso").trim()
+    let localidad=prompt("dame una localidad").trim()
+    let fecha_inicio=prompt("dame una fecha inicio").trim()
+    let fecha_fin=prompt("dame una fecha fin").trim()
+
+    console.log(`
+    Estimado ${nombre},
+
+    Bienvenido al curso de ${curso} que se celebrará en la localidad de ${localidad} entre las fechas ${fecha_inicio} y ${fecha_fin}. 
+    Espero que el curso se desarrolle según sus expectativas. Estaremos encantados de atenderle
+
+    Atentamente, 
+    La dirección.`
+    )
+
+  </script>
+  
+</body>
+</html>

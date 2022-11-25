@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>1y2EsPar</title>
+</head>
+<body>
+  
+  <script>
+    //ejercicio que solicite un numero y diga si es par o impar
+    let numero = prompt("dame un numero")
+
+    const RESULTADO=numero%2==0 ?console.log("Es par"): console.log("Es impar")
+
+    //agregar a lo anterior la logica necesaria para comprobar si lo que se ha introducido es un numero
+    //console.log(typeof(numero))
+
+    if (isNaN(numero)){
+      console.log("introduce un numero, no un String")
+    } else{
+      const RESULTADO=numero%2===0 ?console.log("Es par"): console.log("Es impar")
+    }
+
+  </script>
+
+</body>
+</html>

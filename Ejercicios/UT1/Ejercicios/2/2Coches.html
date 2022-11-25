@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.Coches</title>
+</head>
+<body>
+  <script>
+
+      function coche(marca,modelo,precio,anyoMatriculacion,url){
+      this.marca=marca
+      this.modelo=modelo
+      this.precio=precio
+      this.ayoMatriculacion=anyoMatriculacion
+      this.url=url
+
+      toString();{
+      return `marca= ${this.marca}, modelo = ${this.modelo}, precio = ${this.precio}, anyo matriculacion ${this.anyoMatriculacion}`
+      }
+
+      }
+
+      /*var coche,{
+        marca,
+        modelo,
+        precio,
+        anyoMatriculacion,
+        url,
+
+        function generarCoche(marca,modelo,precio,anyoMatriculacion,url){
+          this.marca=marca
+          this.modelo=modelo
+          this.precio=precio
+          this.anyoMatriculacion=anyoMatriculacion
+          this.url=url
+        }
+
+      }*/
+
+
+
+
+
+
+    let listaCoches=new Array(5)
+
+    c1 = new coche('a','a',1,1,'a')
+    c2 = new coche('b','b',2,2,'b')
+    c3 = new coche('c','c',3,3,'c')
+    c4 = new coche('d','d',4,4,'d')
+    c5 = new coche('e','e',5,5,'e')
+
+    listaCoches[0]=c1
+    listaCoches[1]=c2
+    listaCoches[2]=c3
+    listaCoches[3]=c4
+    listaCoches[4]=c5    
+
+    for (i=0;i<5;i++){
+      console.log(listaCoches[i])
+    }
+
+    function pintaCoches(lista){
+        lista.forEach(element => {document.write(
+        `
+        <div class="card" style="width: 18rem;">
+                          <img class="card-img-top" src=${element.url} alt="Card image cap">
+                          <div class="card-body">
+                            <h5 class="card-title">${element.marca} ${element.modelo}</h5>
+                            <p class="card-text">
+                              Precio: ${element.precio} €<br/>
+                              Anyo matriculación: ${element.anyoMatriculacion}
+                              </p>
+                            <a href="#" class="btn btn-primary">Comprar</a>
+                          </div>
+                        </div>
+        `)
+      });
+    }
+
+    /**
+     * document.write("<b>Marca</b>: "+coches[i].marca ...)
+     */
+    pintaCoches(listaCoches)
+
+  </script>
+</body>
+</html>

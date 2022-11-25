@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div class="container">
+    <ul>
+      <li><a href="#">Opcion1</a></li>
+      <li><a href="#">Opcion2</a></li>
+      <li id="especial"><a href="">Opcion3</a></li>
+      <li><a href="#">Opcion4</a></li>
+    </ul>
+  </div>
+
+  <script>
+    const nodeList = document.body.childNodes;
+    let text = "";
+    for (let i=0;i<nodeList.length;i++){
+      text+=nodeList[i].nodeName+"<br>";
+    }
+    document.getElementById("demo").innerHTML=text;
+  </script>
+  
+</body>
+</html>

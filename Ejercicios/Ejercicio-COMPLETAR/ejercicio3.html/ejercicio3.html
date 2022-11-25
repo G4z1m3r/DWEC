@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      text-decoration: none;
+      list-style-type: none;
+      font-family: sans-serif;
+    }
+    #menu li a {
+      display:block;
+      color:black;
+      padding:.5rem;
+    }
+    #menu>ul>li>a{
+      background: greenyellow;
+    }
+    #menu li ul {
+      background: purple;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .5s;
+    }
+    #meny li.mostrar ul {
+      max-height: 500px;
+    }
+  </style>
+
+  <nav id="menu">
+    <ul>
+      <li>
+        <a href="#">Item 1</a>
+        <ul>
+          <li><a href="#">1</a></li>
+          <li><a href="#">1</a></li>
+          <li class="separador"></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">1</a></li>
+          <li><a href="#">1</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Item 3</a>
+        <ul>
+          <li><a href="#">2</a></li>
+          <li class="separador"></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">2</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">Item 3</a>
+        <ul>
+          <li><a href="#">3</a></li>
+          <li class="separador"></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">3</a></li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+
+  <script src="ejercicio3.js"></script>
+</body>
+</html>
