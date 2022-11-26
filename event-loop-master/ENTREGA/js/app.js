@@ -30,6 +30,3 @@ async function logingFunction(){
       }
 }
 
-//Hacer la funcion del boton de listar usuarios
-
-//Hacer la funcion del boton mostrar todos los posts
