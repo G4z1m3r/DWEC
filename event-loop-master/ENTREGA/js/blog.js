@@ -6,8 +6,9 @@ console.log(btnMostrarPosts)
 
 btnListarUsers.addEventListener("click", evento =>{
     evento.preventDefault()
-    
-    pintarTabla(listarUsuarios())
+
+    listarUsuarios()
+
 })
 
 btnMostrarPosts.addEventListener("click", evento =>{
@@ -23,21 +24,15 @@ async function listarUsuarios(){
     let divBotones = document.getElementById('botones')
     divBotones.style.display = 'none'
 
-    return lista
-}
-
-async function pintarTabla(lista){
-    
-    console.log(lista)
-    try{
-    let headers = ['ID','USUARIO','POSTS']
+    let headers = ['ID','USUARIO','CORREO','POSTS']
     let tabla = document.querySelector('#lista-usuarios')
     console.log(tabla)
     tabla.style.display = 'flex'
+    tabla.style.justifyContent = 'space-between'
 
     let table = document.createElement('table')
     console.log(table)
-    let headerRow = tabla.createElement('tr')
+    let headerRow = document.createElement('tr')
     console.log(headerRow)
 
     headers.forEach(headerText =>{
@@ -48,12 +43,29 @@ async function pintarTabla(lista){
     })
 
     table.appendChild(headerRow)
+    lista.forEach(usuario =>{
+        let row = document.createElement('tr')
+        let datos = [usuario.id,usuario.username,usuario.email,'Show Posts']
+        datos.forEach(dato =>{
+            let cell = document.createElement('td')
+            let textNode = document.createTextNode(dato)
+            cell.appendChild(textNode)
+            row.appendChild(cell)
+        })
+        table.appendChild(row)
+    })
+
     tabla.appendChild(table)
     console.log(table)
     console.log(tabla)
-    } catch {
-        console.log('pito')
-    }
 }
+
+// function pintarTabla(lista){
+    
+//     console.log(lista)
+
+   
+//  }
+
 
 //Hacer la funcion del boton mostrar todos los posts
