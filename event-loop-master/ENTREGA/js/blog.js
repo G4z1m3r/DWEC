@@ -40,6 +40,7 @@ async function listarUsuarios(){
         let textNode = document.createTextNode(headerText)
         header.appendChild(textNode)
         headerRow.appendChild(header)
+        header.scope = 'col'
     })
 
     table.appendChild(headerRow)
@@ -58,6 +59,7 @@ async function listarUsuarios(){
     tabla.appendChild(table)
     console.log(table)
     console.log(tabla)
+    table.classList.add('table')
 }
 
 // function pintarTabla(lista){
