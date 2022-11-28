@@ -14,7 +14,7 @@ btnListarUsers.addEventListener("click", evento =>{
 btnMostrarPosts.addEventListener("click", evento =>{
     evento.preventDefault()
     
-    
+    mostrarPosts()
 })
 
 //Hacer la funcion del boton de listar usuarios
@@ -46,13 +46,22 @@ async function listarUsuarios(){
     table.appendChild(headerRow)
     lista.forEach(usuario =>{
         let row = document.createElement('tr')
-        let datos = [usuario.id,usuario.username,usuario.email,'Show Posts']
+        let datos = [usuario.id,usuario.username,usuario.email]
         datos.forEach(dato =>{
             let cell = document.createElement('td')
             let textNode = document.createTextNode(dato)
             cell.appendChild(textNode)
             row.appendChild(cell)
         })
+
+        let botonposts = document.createElement('button')
+        botonposts.setAttribute('onclick', `MostrarPostsUsuario(${usuario.id})`)
+        let cellbtn = document.createElement('td')
+        let TextNodebtn = document.createTextNode("Show Posts")
+        botonposts.appendChild(TextNodebtn)
+        cellbtn.appendChild(botonposts)
+        row.appendChild(cellbtn)
+
         table.appendChild(row)
     })
 
@@ -62,12 +71,19 @@ async function listarUsuarios(){
     table.classList.add('table')
 }
 
-// function pintarTabla(lista){
-    
-//     console.log(lista)
-
-   
-//  }
-
-
 //Hacer la funcion del boton mostrar todos los posts
+
+async function mostrarPosts() {
+    const posts = await (await fetch(`https://jsonplaceholder.typicode.com/posts`)).json()
+
+    let divBotones = document.getElementById('botones')
+    divBotones.style.display = 'none'
+
+
+
+}
+
+async function MostrarPostsUsuario(id) {
+    const postsUser = await (await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)).json()
+    console.log(postsUser)
+}
