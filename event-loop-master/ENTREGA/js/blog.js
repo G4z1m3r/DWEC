@@ -14,7 +14,7 @@ btnListarUsers.addEventListener("click", evento =>{
 btnMostrarPosts.addEventListener("click", evento =>{
     evento.preventDefault()
     
-    mostrarPosts()
+    mostrarPosts(1, 5)
 })
 
 //Hacer la funcion del boton de listar usuarios
@@ -54,7 +54,7 @@ async function listarUsuarios(){
         row.appendChild(cell)
 
         let botonposts1 = document.createElement('button')
-        botonposts1.setAttribute('onclick', `MostrarUsuario(${usuario.id})`)
+        botonposts1.setAttribute('onclick', `mostrarUsuario(${usuario.id})`)
         let cellbtn1 = document.createElement('td')
         let TextNodebtn1 = document.createTextNode(`${usuario.name}`)
         botonposts1.appendChild(TextNodebtn1)
@@ -87,9 +87,32 @@ async function listarUsuarios(){
 
 //Hacer la funcion del boton mostrar todos los posts
 
-async function mostrarPosts() {
+
+async function mostrarPosts(pagina, objetos) {
     const posts = await (await fetch(`https://jsonplaceholder.typicode.com/posts`)).json()
     console.log(posts)
+
+    let paginadeArray = new Array()
+    paginadeArray[0] = new Array()
+    let auxcount=0
+    for (var i=0;i<posts.length;i++){
+        paginadeArray[auxcount].push(posts[i])
+        if (paginadeArray[auxcount.length]%5 == 0 && i <(posts.length-1)){
+            auxcount++
+            paginadeArray[auxcount]=new Array()
+        }
+    }
+
+    for (i=0; i<posts.length;i++){
+        if (i % 5 == 0){
+
+        }
+    }
+    
+    var current_page = pagina;
+    var obj_per_page = objetos;
+
+    let  checker = true
 
     let divBotones = document.getElementById('botones')
     divBotones.style.display = 'none'
@@ -98,55 +121,62 @@ async function mostrarPosts() {
     divListaPosts.style.display = 'flex'
     divListaPosts.style.flexWrap = 'wrap'
 
-    var current_page = 1;
-    var obj_per_page = 5;
-    function totNumPages()
-    {
-        return Math.ceil(posts.length / obj_per_page);
-    }
+    let divpagina = document.getElementById('pagina')
+    divpagina.style.display = 'flex'
 
-    function prevPage()
-    {
-        if (current_page > 1) {
-            current_page--;
-            change(current_page);
-        }
-    }
-    function nextPage()
-    {
-        if (current_page < totNumPages()) {
-            current_page++;
-            change(current_page);
-        }
-    }
+    for (i = pagina * objetos; i < pagina * objetos + objetos; i++) {
 
-    function change(page)
-    {
-        var btn_next = document.getElementById("btn_next");
-        var btn_prev = document.getElementById("btn_prev");
-        var listing_table = document.getElementById("TableList");
-        var page_span = document.getElementById("page");
-        if (page < 1) page = 1;
-        if (page > totNumPages()) page = totNumPages();
-        listing_table.innerHTML = "";
-        for (var i = (page-1) * obj_per_page; i < (page * obj_per_page); i++) {
-            listing_table.innerHTML += obj[i].number + "<br>";
+        if (pagina == 1 & checker == true) {
+            i = 1
+            checker = false
         }
-        page_span.innerHTML = page;
-        if (page == 1) {
-            btn_prev.style.visibility = "hidden";
-        } else {
-            btn_prev.style.visibility = "visible";
-        }
-        if (page == totNumPages()) {
-            btn_next.style.visibility = "hidden";
-        } else {
-            btn_next.style.visibility = "visible";
-        }
+
+        let cardbody = document.createElement('div')
+        cardbody.classList.add('card-body')
+
+        let cardtitle = document.createElement('h5')
+        cardtitle.classList.add('card-title')
+        let titletext = document.createTextNode(posts[i].title)
+        cardtitle.appendChild(titletext)
+        cardbody.appendChild(cardtitle)
+
+        let cardtext = document.createElement('p')
+        cardtext.classList.add('card-text')
+        let texttext = document.createTextNode(posts[i].body)
+        cardtext.appendChild(texttext)
+        cardbody.appendChild(cardtext)
+
+        divListaPosts.appendChild(cardbody)
     }
-    window.onload = function() {
-        change(1);
-    };
+}
+
+    // function change(page)
+    // {
+    //     var btn_next = document.getElementById("btn_next");
+    //     var btn_prev = document.getElementById("btn_prev");
+    //     var listing_table = document.getElementById("lista-posts");
+    //     var page_span = document.getElementById("page");
+    //     if (page < 1) page = 1;
+    //     if (page > totNumPages()) page = totNumPages();
+    //     listing_table.innerHTML = "";
+    //     for (var i = (page-1) * obj_per_page; i < (page * obj_per_page); i++) {
+    //         listing_table.innerHTML += obj[i].number + "<br>";
+    //     }
+    //     page_span.innerHTML = page;
+    //     if (page == 1) {
+    //         btn_prev.style.visibility = "hidden";
+    //     } else {
+    //         btn_prev.style.visibility = "visible";
+    //     }
+    //     if (page == totNumPages()) {
+    //         btn_next.style.visibility = "hidden";
+    //     } else {
+    //         btn_next.style.visibility = "visible";
+    //     }
+    // }
+    // window.onload = function() {
+    //     change(1);
+    // };
     
 
 
@@ -169,7 +199,7 @@ async function mostrarPosts() {
     //     divListaPosts.appendChild(cardbody)
     // })
 
-}
+
 
 async function MostrarPostsUsuario(id) {
     const posts = await (await fetch(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)).json()
@@ -203,4 +233,13 @@ async function MostrarPostsUsuario(id) {
 
         divListaPosts.appendChild(cardbody)
     })
+}
+
+async function mostrarUsuario(id){
+
+    const userinfo = await (await fetch(`https://jsonplaceholder.typicode.com/users/${id}`)).json()
+
+
+    
+
 }
