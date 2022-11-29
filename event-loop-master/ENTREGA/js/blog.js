@@ -24,7 +24,7 @@ async function listarUsuarios(){
     let divBotones = document.getElementById('botones')
     divBotones.style.display = 'none'
 
-    let headers = ['ID','USUARIO','CORREO','POSTS']
+    let headers = ['ID','USERNAME','USUARIO','CORREO','POSTS']
     let tabla = document.querySelector('#lista-usuarios')
     console.log(tabla)
     tabla.style.display = 'flex'
@@ -46,8 +46,22 @@ async function listarUsuarios(){
     table.appendChild(headerRow)
     lista.forEach(usuario =>{
         let row = document.createElement('tr')
-        let datos = [usuario.id,usuario.username,usuario.email]
-        datos.forEach(dato =>{
+        let datos = [usuario.username,usuario.email]
+
+        let cell = document.createElement('td')
+        let textnode = document.createTextNode(`${usuario.id}`)
+        cell.appendChild(textnode)
+        row.appendChild(cell)
+
+        let botonposts1 = document.createElement('button')
+        botonposts1.setAttribute('onclick', `MostrarUsuario(${usuario.id})`)
+        let cellbtn1 = document.createElement('td')
+        let TextNodebtn1 = document.createTextNode(`${usuario.name}`)
+        botonposts1.appendChild(TextNodebtn1)
+        cellbtn1.appendChild(botonposts1)
+        row.appendChild(cellbtn1)
+
+        datos.forEach(dato => {
             let cell = document.createElement('td')
             let textNode = document.createTextNode(dato)
             cell.appendChild(textNode)
