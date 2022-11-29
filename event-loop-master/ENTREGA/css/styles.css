@@ -16,4 +16,8 @@ form{
   width: 40vw;
 }
 
+#lista-posts{
+  display: none;
+}
+
 /* dar estilos al nav y a los botones */
