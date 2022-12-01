@@ -238,8 +238,25 @@ async function MostrarPostsUsuario(id) {
 async function mostrarUsuario(id){
 
     const userinfo = await (await fetch(`https://jsonplaceholder.typicode.com/users/${id}`)).json()
+    console.log(userinfo)
 
+    let divlistausuarios = document.getElementById('lista-usuarios')
 
-    
+    divlistausuarios.style.display = 'none'
+
+    let divuserinfo = document.getElementById('user-info')
+
+    let claves = Object.values(userinfo)
+
+    for(let i=0; i<claves.length;i++){
+        let dato = claves[i]
+
+        let datoimp = document.createElement('h4')
+        let datotext = document.createTextNode(dato)
+        datoimp.appendChild(datotext)
+
+        divuserinfo.appendChild(datoimp)
+
+    }
 
 }
